@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HomeValue.com | Find out what your home is worth</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "secondary-container": "#c3d0fd",
+          "error": "#ba1a1a",
+          "primary": "#0056c9",
+          "on-primary-fixed": "#001945",
+          "on-secondary-fixed": "#0b1a3d",
+          "primary-fixed-dim": "#b0c6ff",
+          "surface-container-low": "#f4f4f0",
+          "tertiary-fixed": "#9af0f9",
+          "on-surface-variant": "#424654",
+          "on-tertiary-fixed": "#002022",
+          "on-surface": "#1b1c1a",
+          "surface-container-lowest": "#ffffff",
+          "surface": "#faf9f5",
+          "inverse-on-surface": "#f2f1ed",
+          "tertiary-fixed-dim": "#7ed4dd",
+          "surface-container": "#efeeea",
+          "primary-container": "#1b6ef3",
+          "on-background": "#1b1c1a",
+          "surface-container-highest": "#e3e2df",
+          "on-primary-container": "#fffdff",
+          "surface-variant": "#e3e2df",
+          "primary-fixed": "#d9e2ff",
+          "outline": "#727786",
+          "on-error-container": "#93000a",
+          "surface-bright": "#faf9f5",
+          "on-secondary-container": "#4c597f",
+          "outline-variant": "#c2c6d7",
+          "secondary-fixed": "#dae2ff",
+          "on-tertiary-fixed-variant": "#004f55",
+          "on-primary": "#ffffff",
+          "tertiary": "#00676e",
+          "on-tertiary": "#ffffff",
+          "error-container": "#ffdad6",
+          "on-secondary-fixed-variant": "#38466b",
+          "surface-dim": "#dbdad6",
+          "on-primary-fixed-variant": "#00419c",
+          "inverse-primary": "#b0c6ff",
+          "background": "#faf9f5",
+          "surface-tint": "#0057cc",
+          "on-secondary": "#ffffff",
+          "surface-container-high": "#e9e8e4",
+          "on-error": "#ffffff",
+          "secondary": "#505d84",
+          "tertiary-container": "#1f8189",
+          "on-tertiary-container": "#f9ffff",
+          "inverse-surface": "#2f312e",
+          "secondary-fixed-dim": "#b8c5f2"
+        },
+        borderRadius: {
+          "DEFAULT": "1rem",
+          "lg": "2rem",
+          "xl": "3rem",
+          "full": "9999px"
+        },
+        fontFamily: {
+          "headline": ["Epilogue"],
+          "body": ["Manrope"],
+          "label": ["Manrope"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .editorial-shadow {
+    box-shadow: 0 20px 40px rgba(11, 26, 61, 0.05);
+  }
+  .primary-gradient {
+    background: linear-gradient(135deg, #1b6ef3 0%, #0056c9 100%);
+  }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-[#faf9f5]/70 backdrop-blur-xl">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <div class="text-2xl font-black font-headline text-[#0b1a3d]">HomeValue</div>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="text-[#0b1a3d] hover:text-[#1b6ef3] transition-colors duration-300 font-medium font-label" href="#how-it-works">How It Works</a>
+      <a class="text-[#0b1a3d] hover:text-[#1b6ef3] transition-colors duration-300 font-medium font-label" href="#estimate">About</a>
+      <a class="text-[#1b6ef3] font-bold border-b-2 border-[#1b6ef3] pb-1 font-label" href="#estimate">Get Your Value</a>
+      <a class="primary-gradient text-white px-8 py-3 rounded-full font-bold hover:scale-95 transition-all duration-200 shadow-lg shadow-primary/20" href="#estimate">
+        Get My Home Value
+      </a>
+    </div>
+    <div class="md:hidden text-[#0b1a3d]">
+      <span class="material-symbols-outlined">menu</span>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-24">
+
+  <!-- Hero -->
+  <section class="max-w-7xl mx-auto px-8 py-16 md:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="space-y-8">
+        <span class="inline-block px-6 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label font-bold text-sm">
+          Free Home Valuation
+        </span>
+        <h1 class="text-5xl lg:text-7xl font-headline font-black text-on-secondary-fixed tracking-tighter leading-[0.95]">
+          Find out what your home is worth. <span class="text-primary-container">No agent required.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-on-surface-variant max-w-lg leading-relaxed">
+          Get an instant estimate based on recent sales in your area. Takes 30 seconds.
+        </p>
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex-grow bg-surface-container-low rounded-xl px-6 py-4 flex items-center group focus-within:bg-surface-container-lowest focus-within:ring-2 ring-primary/20 transition-all">
+              <span class="material-symbols-outlined text-outline mr-3">location_on</span>
+              <input class="bg-transparent border-none focus:ring-0 w-full font-label text-on-surface placeholder:text-outline" placeholder="Enter your home address..." type="text"/>
+            </div>
+            <button class="primary-gradient text-on-primary px-8 py-4 rounded-full font-bold whitespace-nowrap hover:scale-95 transition-all editorial-shadow">
+              Get My Free Estimate
+            </button>
+          </div>
+          <!-- Ghost/outline secondary CTA -->
+          <a href="#how-it-works" class="inline-flex items-center gap-2 border-2 border-primary-container text-primary-container px-6 py-3 rounded-full font-bold hover:bg-primary-container hover:text-white transition-all duration-200 font-label">
+            See How It Works
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="rounded-xl overflow-hidden editorial-shadow transform rotate-1">
+          <img alt="Aerial view of a beautiful modern suburban neighborhood with lush green trees and clean streets" class="w-full aspect-[4/5] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6J5Sl8lfE2JSxu_IESb8W1aWfs5VqXAETWvjahQbqw15WtwxKIdX0JoRjf2xvvtS3S_f8WZKbJmqwWFDkrvjH9DCH4S1jlLCbEFiRhrPjH_G2x0WzHx0VIC5w1e1i9IvPldLHpoBwyf7BtpwFu5mYgBQCjBoGKM4V0qQzgUDeqaJ-9-oZb_PR5nm1bec2jAY4LslmPQvGZyK2GQoNwhXRHrkgj053VytWZeCzdAoHF6u0cz-d_hwo0g4V3wadIlwmFWvvXq_jMFQ"/>
+        </div>
+        <!-- Floating decorative card REMOVED — unverifiable claim -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-surface-container-low py-12">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center">
+        <div class="space-y-1">
+          <div class="text-3xl font-headline font-black text-primary tracking-tight">2.4M+</div>
+          <div class="text-on-surface-variant font-label font-medium uppercase tracking-widest text-xs">Valuations Completed</div>
+        </div>
+        <div class="space-y-1 border-y md:border-y-0 md:border-x border-surface-container-highest py-8 md:py-0">
+          <div class="text-3xl font-headline font-black text-primary tracking-tight">48 States</div>
+          <div class="text-on-surface-variant font-label font-medium uppercase tracking-widest text-xs">Covered Coast-to-Coast</div>
+        </div>
+        <div class="space-y-1">
+          <div class="text-3xl font-headline font-black text-primary tracking-tight">Free</div>
+          <div class="text-on-surface-variant font-label font-medium uppercase tracking-widest text-xs">No Sign-Up Required</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="max-w-7xl mx-auto px-8 py-24 md:py-32" id="how-it-works">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div class="order-2 md:order-1">
+        <div class="rounded-xl overflow-hidden editorial-shadow bg-surface-container-highest">
+          <img alt="Person using a laptop at a bright, modern kitchen table with a cup of coffee" class="w-full aspect-video md:aspect-square object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2zZ7Ig1AWe6G-68sVNHcFwTGdIK92nbJHodw1wI-0quSx3DrSePpPo3gCWcGoyqTLq_nVroQsPhT0n_5g_g8mc1yCXM9A202XvczSwiLX5jrpj9IurCxsuGuQSsCd9sizlN4S-LUNmP1tdhTbP9i-3j7NfFXiV0AnjYCaJI0740-8aXx5xILyxMhzA_KYOM29ODboWemVub-WOTl0_CDc5-twWvWfXpDMpDFXyr-xr1_vjG9fDvXGt54R6o-BsYJsw1I3RHrb05k"/>
+        </div>
+      </div>
+      <div class="space-y-10 order-1 md:order-2">
+        <div class="space-y-4">
+          <span class="inline-block px-4 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label font-bold text-xs uppercase tracking-wider">Simple Process</span>
+          <h2 class="text-4xl md:text-5xl font-headline font-black text-on-secondary-fixed tracking-tight">Three steps. Thirty seconds.</h2>
+        </div>
+        <div class="space-y-8">
+          <div class="flex gap-6 group">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary font-headline font-black text-xl group-hover:bg-primary group-hover:text-white transition-all">1</div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-on-secondary-fixed">Enter your address</h3>
+              <p class="text-on-surface-variant leading-relaxed">We look up recent sales in your area to build your estimate.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 group">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary font-headline font-black text-xl group-hover:bg-primary group-hover:text-white transition-all">2</div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-on-secondary-fixed">See your estimated value range</h3>
+              <p class="text-on-surface-variant leading-relaxed">Get a low-to-high range based on comparable sales in your neighborhood.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 group">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary font-headline font-black text-xl group-hover:bg-primary group-hover:text-white transition-all">3</div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-on-secondary-fixed">Connect with a local expert</h3>
+              <p class="text-on-surface-variant leading-relaxed">If you want to go further, we can match you with an agent who knows your market.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters -->
+  <section class="bg-surface-container-low overflow-hidden">
+    <div class="max-w-7xl mx-auto px-8 py-24 md:py-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="space-y-8">
+          <span class="inline-block px-4 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label font-bold text-xs uppercase tracking-wider">Know Before You List</span>
+          <h2 class="text-4xl md:text-5xl font-headline font-black text-on-secondary-fixed tracking-tight">Pricing your home wrong costs you money.</h2>
+          <p class="text-lg text-on-surface-variant leading-relaxed">
+            Sellers who price too high sit on the market. Sellers who price too low leave equity behind. A free estimate is a starting point — not a final number, but better than guessing.
+          </p>
+          <a href="#estimate" class="primary-gradient text-on-primary px-10 py-4 rounded-full font-bold hover:scale-95 transition-all editorial-shadow inline-flex items-center gap-3">
+            Get My Estimate
+            <span class="material-symbols-outlined">calculate</span>
+          </a>
+        </div>
+        <div class="relative">
+          <img alt="Modern architectural house exterior with large windows" class="rounded-xl editorial-shadow -rotate-2 scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEDqtlEUzxW-7yzQ9EXvVAbdU39GnM2xmUBFC8H_t1GROvJMzqop6DjnziCPd0Qq_Vu_qyGYFHPAEiI0faqfJe343uCP5G2LNv-VlX45K5G6L5IQR3UiEk7sGTurlYITf0U-bjk88LKGhNH1e3esB4Z-sA2mJIEFLJuQGLohPBAUNi97Vph_iUJZoH3TnOCp_BslISGm5QgHBYyFC9SCMU2XlhoIQ8_s6gseRukNJSkDo1-YOkHSi1cdRRLKq9l337ymPpfW5WjJs"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="max-w-7xl mx-auto px-8 py-24 md:py-32">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-10 rounded-xl bg-surface-container-lowest border border-surface-container-low editorial-shadow hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-3xl">bolt</span>
+        </div>
+        <h3 class="text-2xl font-headline font-black text-on-secondary-fixed mb-4">Instant Estimate</h3>
+        <p class="text-on-surface-variant leading-relaxed">Based on recent comparable sales in your zip code. No waiting, no callbacks.</p>
+      </div>
+      <div class="p-10 rounded-xl bg-surface-container-lowest border border-surface-container-low editorial-shadow hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-3xl">no_accounts</span>
+        </div>
+        <h3 class="text-2xl font-headline font-black text-on-secondary-fixed mb-4">No Account Needed</h3>
+        <p class="text-on-surface-variant leading-relaxed">Enter your address and see results. That's it. No password required.</p>
+      </div>
+      <div class="p-10 rounded-xl bg-surface-container-lowest border border-surface-container-low editorial-shadow hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-3xl">analytics</span>
+        </div>
+        <h3 class="text-2xl font-headline font-black text-on-secondary-fixed mb-4">Local Market Data</h3>
+        <p class="text-on-surface-variant leading-relaxed">Updated regularly with sales data from your area — not national averages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Capture Form -->
+  <section class="max-w-4xl mx-auto px-8 pb-32" id="estimate">
+    <div class="bg-surface-container-lowest rounded-xl p-8 md:p-16 editorial-shadow border border-surface-container-low text-center">
+      <h2 class="text-4xl font-headline font-black text-on-secondary-fixed mb-12 tracking-tight">Get your free home value estimate</h2>
+
+      <!-- Success state (hidden until form submitted) -->
+      <div id="form-success" class="hidden text-center py-12 space-y-4">
+        <div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-3xl text-on-tertiary-fixed">check</span>
+        </div>
+        <h3 class="text-2xl font-headline font-black text-on-secondary-fixed">You're all set.</h3>
+        <p class="text-on-surface-variant">We'll be in touch shortly with your estimate. Check your email.</p>
+      </div>
+
+      <form id="lead-form" class="text-left space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label class="text-sm font-label font-bold text-on-secondary-fixed ml-1">Full Name</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20" placeholder="Jane Smith" type="text"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-label font-bold text-on-secondary-fixed ml-1">Email Address</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20" placeholder="jane@example.com" type="email"/>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label class="text-sm font-label font-bold text-on-secondary-fixed ml-1">Phone (optional)</label>
+            <input class="w-full bg-surface-container-low border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20" placeholder="(555) 000-0000" type="tel"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-label font-bold text-on-secondary-fixed ml-1">When are you thinking of selling?</label>
+            <select class="w-full bg-surface-container-low border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 text-on-surface-variant">
+              <option>Just exploring</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option>Already decided</option>
+            </select>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-label font-bold text-on-secondary-fixed ml-1">Home Address</label>
+          <input class="w-full bg-surface-container-low border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20" placeholder="123 Maple St, Anytown, ST 00000" type="text"/>
+        </div>
+        <div class="pt-6">
+          <button class="w-full primary-gradient text-on-primary py-5 rounded-full font-bold text-lg hover:scale-[0.98] transition-all editorial-shadow" type="submit">
+            Send My Estimate
+          </button>
+        </div>
+        <p class="text-xs text-center text-outline leading-relaxed px-4">
+          We don't sell your information. No spam, ever.
+        </p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-8">
+  <div class="flex justify-center items-center gap-4 w-full px-8 text-on-surface-variant font-label text-sm">
+    <span>© 2025 HomeValue.com. All rights reserved.</span>
+    <span>|</span>
+    <a class="hover:text-primary transition-all" href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('lead-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('lead-form').classList.add('hidden');
+    document.getElementById('form-success').classList.remove('hidden');
+  });
+</script>
+
+</body></html>
