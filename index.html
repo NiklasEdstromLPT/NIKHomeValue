@@ -128,9 +128,9 @@
           <div class="flex flex-col sm:flex-row gap-4">
             <div class="flex-grow bg-surface-container-low rounded-xl px-6 py-4 flex items-center group focus-within:bg-surface-container-lowest focus-within:ring-2 ring-primary/20 transition-all">
               <span class="material-symbols-outlined text-outline mr-3">location_on</span>
-              <input class="bg-transparent border-none focus:ring-0 w-full font-label text-on-surface placeholder:text-outline" placeholder="Enter your home address..." type="text"/>
+              <input id="hero-address" class="bg-transparent border-none focus:ring-0 w-full font-label text-on-surface placeholder:text-outline" placeholder="Enter your home address..." type="text"/>
             </div>
-            <button class="primary-gradient text-on-primary px-8 py-4 rounded-full font-bold whitespace-nowrap hover:scale-95 transition-all editorial-shadow">
+            <button id="hero-estimate-btn" class="primary-gradient text-on-primary px-8 py-4 rounded-full font-bold whitespace-nowrap hover:scale-95 transition-all editorial-shadow flex items-center justify-center gap-2">
               Get My Free Estimate
             </button>
           </div>
@@ -140,6 +140,36 @@
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </a>
         </div>
+
+        <!-- Valuation Results Panel (hidden until estimate triggered) -->
+        <div id="hero-results" class="hidden">
+          <div class="bg-surface-container-lowest rounded-xl p-8 border border-surface-container-low editorial-shadow space-y-6">
+            <!-- Estimated Value -->
+            <div class="text-center space-y-2">
+              <p class="text-sm font-label font-bold text-on-surface-variant uppercase tracking-wider">Estimated Value</p>
+              <p id="hero-result-value" class="text-4xl md:text-5xl font-headline font-black text-primary tracking-tight"></p>
+              <p id="hero-result-range" class="text-base text-on-surface-variant font-label"></p>
+            </div>
+
+            <hr class="border-surface-container-highest"/>
+
+            <!-- Comparable Sales -->
+            <div class="space-y-3">
+              <p class="text-sm font-label font-bold text-on-secondary-fixed">Comparable Sales</p>
+              <div id="hero-comps" class="grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
+            </div>
+
+            <p class="text-xs text-center text-outline">Based on 3 recent sales within 0.5 miles</p>
+
+            <!-- CTA to full form -->
+            <div class="text-center pt-2">
+              <a href="#estimate" id="hero-results-cta" class="primary-gradient text-on-primary px-8 py-4 rounded-full font-bold hover:scale-95 transition-all editorial-shadow inline-block">
+                Get a More Accurate Estimate
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
       <div class="relative">
         <div class="rounded-xl overflow-hidden editorial-shadow transform rotate-1">
@@ -332,6 +362,90 @@
     document.getElementById('lead-form').classList.add('hidden');
     document.getElementById('form-success').classList.remove('hidden');
   });
+</script>
+
+<script>
+(function() {
+  var scenarios = [
+    {
+      low: 387000, high: 412000,
+      comps: [
+        { address: '142 Oakridge Dr', price: 395000, beds: 3, baths: 2, daysAgo: 14 },
+        { address: '87 Birchwood Ln', price: 408000, beds: 4, baths: 2.5, daysAgo: 22 },
+        { address: '310 Elmhurst Ave', price: 398000, beds: 3, baths: 2, daysAgo: 31 }
+      ]
+    },
+    {
+      low: 524000, high: 561000,
+      comps: [
+        { address: '29 Crestview Ct', price: 530000, beds: 4, baths: 3, daysAgo: 11 },
+        { address: '805 Ridgemont Blvd', price: 555000, beds: 4, baths: 3.5, daysAgo: 19 },
+        { address: '461 Heatherstone Way', price: 541000, beds: 3, baths: 2.5, daysAgo: 27 }
+      ]
+    },
+    {
+      low: 218000, high: 241000,
+      comps: [
+        { address: '56 Maple Crossing Rd', price: 220000, beds: 3, baths: 1.5, daysAgo: 9 },
+        { address: '1023 Sunridge Pkwy', price: 238000, beds: 3, baths: 2, daysAgo: 18 },
+        { address: '714 Millbrook St', price: 226000, beds: 2, baths: 1.5, daysAgo: 34 }
+      ]
+    }
+  ];
+
+  function formatPrice(n) {
+    return '$' + n.toLocaleString('en-US');
+  }
+
+  var btn = document.getElementById('hero-estimate-btn');
+  var input = document.getElementById('hero-address');
+  var resultsPanel = document.getElementById('hero-results');
+  var btnOriginalHTML = btn.innerHTML;
+
+  btn.addEventListener('click', function() {
+    if (!input.value.trim()) {
+      input.focus();
+      return;
+    }
+
+    // Loading state
+    btn.disabled = true;
+    btn.innerHTML = '<svg class="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg> Analyzing...';
+
+    setTimeout(function() {
+      var scenario = scenarios[Math.floor(Math.random() * scenarios.length)];
+      var midValue = Math.round((scenario.low + scenario.high) / 2);
+
+      document.getElementById('hero-result-value').textContent = formatPrice(midValue);
+      document.getElementById('hero-result-range').textContent = formatPrice(scenario.low) + ' \u2013 ' + formatPrice(scenario.high);
+
+      var compsContainer = document.getElementById('hero-comps');
+      compsContainer.innerHTML = '';
+      scenario.comps.forEach(function(comp) {
+        var card = document.createElement('div');
+        card.className = 'bg-surface-container-low rounded-lg p-4 space-y-2';
+        card.innerHTML =
+          '<p class="font-label font-bold text-sm text-on-secondary-fixed">' + comp.address + '</p>' +
+          '<p class="text-lg font-headline font-black text-primary">' + formatPrice(comp.price) + '</p>' +
+          '<p class="text-xs text-on-surface-variant">' + comp.beds + ' bed / ' + comp.baths + ' bath</p>' +
+          '<p class="text-xs text-outline">Sold ' + comp.daysAgo + ' days ago</p>';
+        compsContainer.appendChild(card);
+      });
+
+      resultsPanel.classList.remove('hidden');
+      btn.disabled = false;
+      btn.innerHTML = btnOriginalHTML;
+
+      resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 1500);
+  });
+
+  // Smooth scroll for the "Get a More Accurate Estimate" button
+  document.getElementById('hero-results-cta').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('estimate').scrollIntoView({ behavior: 'smooth' });
+  });
+})();
 </script>
 
 </body></html>
